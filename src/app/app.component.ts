@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit{
 
-  title = 'Marvel Api'
+  public title = 'Marvel Api'
   public heroes: Observable<any> | undefined
   public showImg: boolean = false
   public widthImg: Number = 150
