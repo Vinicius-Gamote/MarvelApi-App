@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: marvel-api-replicaset
+spec: 
+  template: 
+    metadata:
+      name: marvel-api
+      labels: 
+        app: marvel-api
+    spec:
+      containers:
+        - name: marvel-api-container
+          image: gamote/marvel-api:1
+          ports: 
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+              name: marvel-api-configmap
+  replicas: 3
+  selector:
+    matchLabels:
+      app: marvel-api
